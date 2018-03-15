@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry
+      location="C:\\m2\\repository_ng3\\mysql\\mysql-connector-java\\5.1.45\\mysql-connector-java-5.1.45.jar"/>
+  <context id="MysqlTables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://127.0.0.1:3306/thermal_print"
+                    userId="xwm"
+                    password="xwm">
+    </jdbcConnection>
+
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="ind.xwm.thermal.model" targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="ind.xwm.thermal.dao" targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <table tableName="orderdetail" domainObjectName="OrderDetail"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableSelectByExample="false"
+           enableUpdateByExample="false"
+    >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="id" sqlStatement="mysql" identity="true"/>
+      <!-- true:表示数据插入后，在获取最后的id设置的实体中 -->
+    </table>
+    <table tableName="orderid" domainObjectName="OrderID"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableSelectByExample="false"
+           enableUpdateByExample="false"
+    >
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table tableName="product" domainObjectName="Product"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableSelectByExample="false"
+           enableUpdateByExample="false"
+    >
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table tableName="productorder" domainObjectName="ProductOrder"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableSelectByExample="false"
+           enableUpdateByExample="false"
+    >
+      <property name="useActualColumnNames" value="false"/>
+      <columnOverride column="DELIVER_STATUS" jdbcType="TINYINT" javaType="ind.xwm.thermal.enums.DeliverStatus"/>
+      <columnOverride column="PAY_STATUS" jdbcType="TINYINT" javaType="ind.xwm.thermal.enums.PayStatus"/>
+      <columnOverride column="PRINT_STATUS" jdbcType="TINYINT" javaType="ind.xwm.thermal.enums.PrintStatus"/>
+    </table>
+    <table tableName="unit" domainObjectName="Unit"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableSelectByExample="false"
+           enableUpdateByExample="false"
+    >
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+  </context>
+</generatorConfiguration>
