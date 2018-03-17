@@ -1,5 +1,5 @@
 CREATE TABLE OrderDetail (
-  id  integer,
+  id  integer NOT NULL AUTO_INCREMENT,
   AMOUNT varchar(20),
   PRODUCT_COUNT varchar(20),
   PRODUCT_NAME varchar(20),
@@ -19,7 +19,7 @@ CREATE TABLE OrderId (
 
 
 CREATE TABLE Product (
-  id  integer,
+  id  integer NOT NULL AUTO_INCREMENT,
   NAME varchar(20),
   PRICE varchar(20),
   UNIT varchar(20),
@@ -44,7 +44,7 @@ CREATE TABLE ProductOrder (
 
 
 CREATE TABLE Unit (
-  id  integer,
+  id  integer NOT NULL AUTO_INCREMENT,
   NAME varchar(20),
   primary key (id)
 );

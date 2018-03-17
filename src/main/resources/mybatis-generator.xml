@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
   <classPathEntry
-      location="C:\\m2\\repository_ng3\\mysql\\mysql-connector-java\\5.1.45\\mysql-connector-java-5.1.45.jar"/>
+      location="/home/xwm/.m2/repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar"/>
   <context id="MysqlTables" targetRuntime="MyBatis3">
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                     connectionURL="jdbc:mysql://127.0.0.1:3306/thermal_print"
@@ -30,7 +30,7 @@
       <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
 
-    <table tableName="orderdetail" domainObjectName="OrderDetail"
+    <table tableName="OrderDetail" domainObjectName="OrderDetail"
            enableCountByExample="false"
            enableDeleteByExample="false"
            enableSelectByExample="false"
@@ -40,23 +40,25 @@
       <generatedKey column="id" sqlStatement="mysql" identity="true"/>
       <!-- true:表示数据插入后，在获取最后的id设置的实体中 -->
     </table>
-    <table tableName="orderid" domainObjectName="OrderID"
+    <table tableName="OrderId" domainObjectName="OrderID"
            enableCountByExample="false"
            enableDeleteByExample="false"
            enableSelectByExample="false"
            enableUpdateByExample="false"
     >
       <property name="useActualColumnNames" value="false"/>
+      <columnOverride column="STATUS" jdbcType="TINYINT" javaType="Integer"/>
     </table>
-    <table tableName="product" domainObjectName="Product"
+    <table tableName="Product" domainObjectName="Product"
            enableCountByExample="false"
            enableDeleteByExample="false"
            enableSelectByExample="false"
            enableUpdateByExample="false"
     >
       <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="id" sqlStatement="mysql" identity="true"/>
     </table>
-    <table tableName="productorder" domainObjectName="ProductOrder"
+    <table tableName="ProductOrder" domainObjectName="ProductOrder"
            enableCountByExample="false"
            enableDeleteByExample="false"
            enableSelectByExample="false"
@@ -67,13 +69,14 @@
       <columnOverride column="PAY_STATUS" jdbcType="TINYINT" javaType="ind.xwm.thermal.enums.PayStatus"/>
       <columnOverride column="PRINT_STATUS" jdbcType="TINYINT" javaType="ind.xwm.thermal.enums.PrintStatus"/>
     </table>
-    <table tableName="unit" domainObjectName="Unit"
+    <table tableName="Unit" domainObjectName="Unit"
            enableCountByExample="false"
            enableDeleteByExample="false"
            enableSelectByExample="false"
            enableUpdateByExample="false"
     >
       <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="id" sqlStatement="mysql" identity="true"/>
     </table>
   </context>
 </generatorConfiguration>
